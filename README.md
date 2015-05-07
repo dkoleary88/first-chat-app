@@ -1,0 +1,1 @@
+First chat app using MEAN stack (node, angular, mongodb, express)
