@@ -1,14 +1,17 @@
 <html>
 	<head>
-		<title>First Chat App by DKO</title>
+		<title>DKO CHAT</title>
 	</head>
 	<body>
-		<h1>First chat app by DKO</h1>
+		<h1>DKO CHAT</h1>
 
 		<ul id="messages"></ul>
 
 		<form action="">
-		 	<input id="m" autocomplete="off" /><button>Send</button>
+			<label>Name</label>
+		 	<input id="name" autocomplete="off" />	
+		 	<label>Message</label>		
+		 	<input id="data" autocomplete="off" /><button>Send</button>
 		</form>
 
 		<!-- JavaScript -->
@@ -18,14 +21,21 @@
 		<script>
 			var socket = io();
 
-		$('form').submit(function(){
-		    socket.emit('chat message', $('#m').val());
-		    $('#m').val('');
-		    return false;
-		});
-		socket.on('chat message', function(msg){
-		    $('#messages').append($('<li>').text(msg));
-		});
+			socket.emit('join', name);
+
+			$('form').submit(function(){
+			    socket.emit('chat message', {
+			    	name: $('#name').val(),
+			    	data: $('#data').val()
+			    });
+			    $('#data').val('');
+			    return false;
+			});
+			socket.on('chat message', function(msg){
+			    $('#messages').append($('<li>').text(
+			    	msg.name+": "+msg.data));
+			});
+
 		</script>
 
 	</body>
