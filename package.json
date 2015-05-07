@@ -4,7 +4,8 @@
   "description": "My First Chat App",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node app"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/dkoleary88/first-chat-app",
   "dependencies": {
     "express": "^4.12.3"
+  },
+  "devDependencies": {
+    "supertest": "^0.15.0"
   }
 }
