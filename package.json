@@ -1,0 +1,22 @@
+{
+  "name": "first-chat-app",
+  "version": "1.0.0",
+  "description": "My First Chat App",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dkoleary88/first-chat-app.git"
+  },
+  "author": "Daniel O'Leary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dkoleary88/first-chat-app/issues"
+  },
+  "homepage": "https://github.com/dkoleary88/first-chat-app",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}
