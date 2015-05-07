@@ -4,7 +4,7 @@
   "description": "My First Chat App",
   "main": "app.js",
   "scripts": {
-    "test": "test",
+    "test": "mocha test.js",
     "start": "node app"
   },
   "repository": {
@@ -21,6 +21,7 @@
     "express": "^4.12.3"
   },
   "devDependencies": {
+    "mocha": "^2.2.4",
     "supertest": "^0.15.0"
   }
 }
