@@ -1,10 +1,10 @@
-<html>
+<html ng-app="chatApp">
 	<head>
 		<title>DKO CHAT</title>
 	</head>
 	<body>
 		<h1>DKO CHAT</h1>
-
+		<p ng-controller='chatCtrl'>{{hello}}</p>
 		<ul id="messages"></ul>
 
 		<form action="">
@@ -16,6 +16,8 @@
 
 		<!-- JavaScript -->
 		<script src='/socket.io/socket.io.js'></script>
+		<script src='node_modules/angular/angular.js'></script>
+		<script src='angular.js'></script>
 		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 
 		<script>
