@@ -4,7 +4,7 @@
 	</head>
 	<body>
 		<h1>DKO CHAT</h1>
-		<p ng-controller='chatCtrl'>{{hello}}</p>
+		<p ng-controller='chatCtrl'></p>
 		<ul id="messages"></ul>
 
 		<form action="">
@@ -21,10 +21,18 @@
 		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 
 		<script>
+			// append message function
+			function msgAppend(content){
+				$('#messages').append($('<li>').text(content));
+			}
+
+			// socket.io setup
 			var socket = io();
 
+			// emit a join message when user joins chat
 			socket.emit('join', name);
 
+			// emit message data when user clicks submit button
 			$('form').submit(function(){
 			    socket.emit('chat message', {
 			    	name: $('#name').val(),
@@ -33,10 +41,18 @@
 			    $('#data').val('');
 			    return false;
 			});
-			socket.on('chat message', function(msg){
-			    $('#messages').append($('<li>').text(
-			    	msg.name+": "+msg.data));
+
+			// print user name of user who joined chat on join
+			socket.on('join', function(name){
+			    msgAppend( name+" has joined the chat." );
 			});
+
+			// print chat message
+			socket.on('chat message', function(msg){
+			    msgAppend( msg.name+": "+msg.data );
+			});
+
+
 
 		</script>
 
